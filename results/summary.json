@@ -1,0 +1,18 @@
+{
+  "rows_total": 12,
+  "median_pv_kpa_l": 247.79299999999995,
+  "suspicious_threshold": 0.1,
+  "suspicious_rows": [
+    {
+      "row": 7,
+      "volume_l": 2.2,
+      "pressure_kpa": 1.136,
+      "pv_kpa_l": 2.4992,
+      "relative_deviation_from_median": -0.9899141622241144
+    }
+  ],
+  "clean_rows": 11,
+  "clean_mean_pv_kpa_l": 249.3182,
+  "clean_relative_stdev": 0.010587786755966073,
+  "conclusion": "The data support Boyle-Mariotte's law after excluding one suspicious row; row 7 likely has a pressure-unit or decimal-place error."
+}
