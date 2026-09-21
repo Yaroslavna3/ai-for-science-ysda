@@ -12,7 +12,12 @@
 
 - `git --version`: `git version 2.51.0.windows.1`.
 - `python --version`: `Python 3.12.14` from the bundled Codex runtime.
-- `ai4science doctor`: not run here because the `ai4science` command is not installed in this machine context and the course Yandex AI Studio credentials are not available in the shared materials.
+- AI4Science installed separately at `D:\AI4Science-course` with system Python 3.13.0.
+- `ai4science doctor`: passed without `FAIL` lines.
+- Goose: `1.50.0`.
+- MCP ai4science: `OK` (17 tools).
+- Lean checker: connected to the course remote service.
+- Credentials are stored only in the agent's ignored local `.env`; no secret values are included in this repository.
 
 ## Git history
 
