@@ -1,0 +1,16 @@
+{
+  "vault": {
+    "name": "Co3O4 Ontology",
+    "version": 1
+  },
+  "core": {
+    "showInlineTitle": false,
+    "showLineCount": true
+  },
+  "graph": {
+    "showTags": false,
+    "showAttachments": false,
+    "showUncreated": false,
+    "collapsed": false
+  }
+}
