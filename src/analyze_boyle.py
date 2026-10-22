@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+# Навигация по проекту и сжатиям статьи: см. ../INDEX.md и ../memory/L1.md–L3.md.
+
 import csv
 import json
 import statistics
