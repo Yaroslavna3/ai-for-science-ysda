@@ -1,0 +1,72 @@
+[
+  {
+    "mutation": "pV арифметика",
+    "test": "test_pv_is_product",
+    "exit_code": 1,
+    "caught": true,
+    "tail": "_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nvolume = 1.0, pressure = 1.0\n\n    @settings(max_examples=100, deadline=None, database=None)\n    @given(volume=FINITE_POSITIVE, pressure=FINITE_POSITIVE)\n    def test_pv_is_product(volume: float, pressure: float) -> None:\n>       assert pv_product(volume, pressure) == pytest.approx(volume * pressure, rel=1e-12)\nE       assert 2.0 == 1.0 ± 1.0e-12\nE         \nE         comparison failed\nE         Obtained: 2.0\nE         Expected: 1.0 ± 1.0e-12\nE       Failing test case: test_pv_is_product(\nE           # The test always failed when commented parts were varied together.\nE           volume=1.0,  # or any other generated value\nE           pressure=1.0,  # or any other generated value\nE       )\n\nchecks\\test_hw2_properties.py:31: AssertionError\n=========================== short test summary info ===========================\nFAILED checks/test_hw2_properties.py::test_pv_is_product - assert 2.0 == 1.0 ...\n1 failed in 0.60s\n"
+  },
+  {
+    "mutation": "перевод единиц",
+    "test": "test_pv_unit_conversion_invariant",
+    "exit_code": 1,
+    "caught": true,
+    "tail": "base=None)\n    @given(volume_l=FINITE_POSITIVE, pressure_kpa=FINITE_POSITIVE)\n    def test_pv_unit_conversion_invariant(volume_l: float, pressure_kpa: float) -> None:\n        value_kpa_l = pv_product(volume_l, pressure_kpa)\n        value_pa_m3 = (volume_l / 1000.0) * (pressure_kpa * 1000.0)\n>       assert value_pa_m3 == pytest.approx(value_kpa_l, rel=1e-12)\nE       assert 1.0 == 1000.0 ± 1.0e-09\nE         \nE         comparison failed\nE         Obtained: 1.0\nE         Expected: 1000.0 ± 1.0e-09\nE       Failing test case: test_pv_unit_conversion_invariant(\nE           # The test always failed when commented parts were varied together.\nE           volume_l=1.0,  # or any other generated value\nE           pressure_kpa=1.0,  # or any other generated value\nE       )\n\nchecks\\test_hw2_properties.py:39: AssertionError\n=========================== short test summary info ===========================\nFAILED checks/test_hw2_properties.py::test_pv_unit_conversion_invariant - ass...\n1 failed in 0.63s\n"
+  },
+  {
+    "mutation": "постоянство pV при изотермическом изменении объёма",
+    "test": "test_pressure_decreases_with_volume",
+    "exit_code": 1,
+    "caught": true,
+    "tail": "volume_l: float, factor: float\n    ) -> None:\n        larger_volume = volume_l * factor\n        pressure_1 = pv_constant / volume_l\n        pressure_2 = pv_constant / larger_volume\n        assert pressure_2 < pressure_1\n>       assert pv_product(volume_l, pressure_1) == pytest.approx(pv_constant, rel=1e-12)\nE       assert 2.0 == 1.0 ± 1.0e-12\nE         \nE         comparison failed\nE         Obtained: 2.0\nE         Expected: 1.0 ± 1.0e-12\nE       Failing test case: test_pressure_decreases_with_volume(\nE           # The test always failed when commented parts were varied together.\nE           pv_constant=1.0,  # or any other generated value\nE           volume_l=1.0,  # or any other generated value\nE           factor=2.0,  # or any other generated value\nE       )\n\nchecks\\test_hw2_properties.py:55: AssertionError\n=========================== short test summary info ===========================\nFAILED checks/test_hw2_properties.py::test_pressure_decreases_with_volume - a...\n1 failed in 0.87s\n"
+  },
+  {
+    "mutation": "идеальные измерения и классификация",
+    "test": "test_ideal_boyle_rows_keep_constant_pv",
+    "exit_code": 1,
+    "caught": true,
+    "tail": "eal_boyle_rows_keep_constant_pv(pv_constant: float) -> None:\n        volumes = [0.5, 0.8, 1.0, 2.0, 4.0]\n        rows = [\n            {\n                \"row\": i,\n                \"volume_l\": volume,\n                \"pressure_kpa\": pv_constant / volume,\n                \"temperature_k\": 293.15,\n            }\n            for i, volume in enumerate(volumes, start=1)\n        ]\n        result = analyze_rows(rows, threshold=0.10)\n>       assert all(not row[\"suspicious\"] for row in result)\nE       assert False\nE        +  where False = all(<generator object test_ideal_boyle_rows_keep_constant_pv.<locals>.<genexpr> at 0x0000023E1A43B100>)\nE       Failing test case: test_ideal_boyle_rows_keep_constant_pv(\nE           pv_constant=1.0,  # or any other generated value\nE       )\n\nchecks\\test_hw2_properties.py:73: AssertionError\n=========================== short test summary info ===========================\nFAILED checks/test_hw2_properties.py::test_ideal_boyle_rows_keep_constant_pv\n1 failed in 0.34s\n"
+  },
+  {
+    "mutation": "масштабная инвариантность",
+    "test": "test_outlier_flags_are_scale_invariant",
+    "exit_code": 1,
+    "caught": true,
+    "tail": "x_value=10, allow_nan=False, allow_infinity=False),\n    )\n    def test_outlier_flags_are_scale_invariant(values: list[float], scale: float) -> None:\n>       assert classify_outliers(values, 0.10) == classify_outliers(\n            [value * scale for value in values], 0.10\n        )\nE       assert [False, False, True] == [False, False, False]\nE         \nE         At index 2 diff: True != False\nE         Use -v to get more diff\nE       Failing test case: test_outlier_flags_are_scale_invariant(\nE           values=[1.0, 1.0, 0.5],\nE           scale=0.125,\nE       )\nE       Explanation:\nE           These lines were always and only run by failing test cases:\nE               C:\\Users\\yarat\\AppData\\Local\\Temp\\hw2_mutations_mlo7dgkr\\mutant_5\\checks\\test_hw2_properties.py:89\n\nchecks\\test_hw2_properties.py:87: AssertionError\n=========================== short test summary info ===========================\nFAILED checks/test_hw2_properties.py::test_outlier_flags_are_scale_invariant\n1 failed in 0.31s\n"
+  },
+  {
+    "mutation": "строгость границы порога",
+    "test": "test_values_exactly_on_threshold_are_not_outliers",
+    "exit_code": 1,
+    "caught": true,
+    "tail": "F                                                                        [100%]\n================================== FAILURES ===================================\n______________ test_values_exactly_on_threshold_are_not_outliers ______________\n\n    def test_values_exactly_on_threshold_are_not_outliers() -> None:\n>       assert classify_outliers([75.0, 100.0, 125.0], 0.25) == [False, False, False]\nE       assert [True, False, True] == [False, False, False]\nE         \nE         At index 0 diff: True != False\nE         Use -v to get more diff\n\nchecks\\test_hw2_properties.py:93: AssertionError\n=========================== short test summary info ===========================\nFAILED checks/test_hw2_properties.py::test_values_exactly_on_threshold_are_not_outliers\n1 failed in 0.10s\n"
+  },
+  {
+    "mutation": "неизменность входа",
+    "test": "test_analysis_is_deterministic_and_does_not_mutate_input",
+    "exit_code": 1,
+    "caught": true,
+    "tail": "  [100%]\n================================== FAILURES ===================================\n__________ test_analysis_is_deterministic_and_does_not_mutate_input ___________\n\n    def test_analysis_is_deterministic_and_does_not_mutate_input() -> None:\n        rows = load_rows()\n        before = copy.deepcopy(rows)\n        first = analyze_rows(rows)\n        second = analyze_rows(rows)\n>       assert rows == before\nE       AssertionError: assert [{'row': 1, '... 293.15}, ...] == [{'row': 1, '... 293.15}, ...]\nE         \nE         At index 0 diff: {'row': 1, 'volume_l': 1.0, 'pressure_kpa': 247.036, 'temperature_k': 293.15, 'mutation': True} != {'row': 1, 'volume_l': 1.0, 'pressure_kpa': 247.036, 'temperature_k': 293.15}\nE         Use -v to get more diff\n\nchecks\\test_hw2_properties.py:124: AssertionError\n=========================== short test summary info ===========================\nFAILED checks/test_hw2_properties.py::test_analysis_is_deterministic_and_does_not_mutate_input\n1 failed in 0.11s\n"
+  },
+  {
+    "mutation": "изотермический контракт",
+    "test": "test_invalid_measurement_contract_is_rejected",
+    "exit_code": 1,
+    "caught": true,
+    "tail": " \"volume_l\": 1.0, \"pressure_kpa\": 2.0}],\n            [{\"row\": 2, \"volume_l\": 1.0, \"pressure_kpa\": 2.0, \"temperature_k\": 293.15}],\n            [{\"row\": 1, \"volume_l\": 0.0, \"pressure_kpa\": 2.0, \"temperature_k\": 293.15}],\n            [{\"row\": 1, \"volume_l\": 1.0, \"pressure_kpa\": float(\"nan\"), \"temperature_k\": 293.15}],\n            [\n                {\"row\": 1, \"volume_l\": 1.0, \"pressure_kpa\": 2.0, \"temperature_k\": 293.15},\n                {\"row\": 2, \"volume_l\": 2.0, \"pressure_kpa\": 1.0, \"temperature_k\": 294.15},\n            ],\n        ],\n    )\n    def test_invalid_measurement_contract_is_rejected(rows: list[dict[str, float]]) -> None:\n>       with pytest.raises(ValueError):\n             ^^^^^^^^^^^^^^^^^^^^^^^^^\nE       Failed: DID NOT RAISE ValueError\n\nchecks\\test_hw2_properties.py:143: Failed\n=========================== short test summary info ===========================\nFAILED checks/test_hw2_properties.py::test_invalid_measurement_contract_is_rejected[rows5]\n1 failed, 5 passed in 0.12s\n"
+  },
+  {
+    "mutation": "контракт исходного набора",
+    "test": "test_source_data_contract_and_week2_flag",
+    "exit_code": 1,
+    "caught": true,
+    "tail": ".863, 'temperature_k': 293.15}, {'row': 3, 'volume_l': 1.4, 'pressure_...': 123.204, 'temperature_k': 293.15}, {'row': 7, 'volume_l': 2.2, 'pressure_kpa': 1.136, 'temperature_k': 293.15}, ...]\n\n    def validate_rows(rows: Sequence[Mapping[str, Any]]) -> None:\n        if not rows:\n            raise ValueError(\"measurements must not be empty\")\n    \n        temperatures: list[float] = []\n        for index, row in enumerate(rows, start=1):\n            missing = REQUIRED_FIELDS - set(row)\n            if missing:\n                raise ValueError(f\"row {index}: missing fields {sorted(missing)}\")\n            if row[\"row\"] != index:\n>               raise ValueError(f\"row numbers must be sequential; expected {index}\")\nE               ValueError: row numbers must be sequential; expected 1\n\nsrc\\boyle_core.py:54: ValueError\n=========================== short test summary info ===========================\nFAILED checks/test_hw2_properties.py::test_source_data_contract_and_week2_flag\n1 failed in 0.12s\n"
+  },
+  {
+    "mutation": "целостность CSV по хэшу",
+    "test": "test_source_csv_matches_frozen_hash",
+    "exit_code": 1,
+    "caught": true,
+    "tail": "                                                                     [100%]\n================================== FAILURES ===================================\n_____________________ test_source_csv_matches_frozen_hash _____________________\n\n    def test_source_csv_matches_frozen_hash() -> None:\n        source = ROOT / \"data\" / \"measurements.csv\"\n>       assert hashlib.sha256(source.read_bytes()).hexdigest().upper() == (\n            \"93E92BF03CD81AE09F8D86E603C19E414C9CFAD6FD17CDCA8C95B3FB031AFF74\"\n        )\nE       AssertionError: assert '395A56EFE423...12DBBF0FB83B7' == '93E92BF03CD8...5B3FB031AFF74'\nE         \nE         - 93E92BF03CD81AE09F8D86E603C19E414C9CFAD6FD17CDCA8C95B3FB031AFF74\nE         + 395A56EFE4230AF05EC65B133A68CDB26EC24B327C10F0F4C6A12DBBF0FB83B7\n\nchecks\\test_hw2_properties.py:114: AssertionError\n=========================== short test summary info ===========================\nFAILED checks/test_hw2_properties.py::test_source_csv_matches_frozen_hash - A...\n1 failed in 0.12s\n"
+  }
+]

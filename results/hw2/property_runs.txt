@@ -1,0 +1,19 @@
+Environment used for recorded runs: Python 3.13.0, pytest 9.2.0, Hypothesis 6.170.15.
+
+Command: python -m pytest checks/test_hw2_properties.py -q
+Result: 22 passed in 0.70s (exit code 0).
+
+Commands with fixed Hypothesis seeds:
+  python -m pytest checks/test_hw2_properties.py -q --hypothesis-seed=17
+  python -m pytest checks/test_hw2_properties.py -q --hypothesis-seed=29
+  python -m pytest checks/test_hw2_properties.py -q --hypothesis-seed=41
+Result: 22 passed for each seed (exit code 0 for each).
+
+Command: python checks/run_mutation_smoke.py
+Result: 10/10 intentional mutants caught; script exit code 0. Every mutant ran in a disposable copy. See mutations.json for target tests and failure excerpts.
+
+Command: python checks/analyze_hw2.py
+Result: exit code 0; threshold sweep and 2,000 bootstrap replicates for each of seeds 17, 29, 41 are in analysis.json.
+
+Command: python checks/check.py
+Result: «принято: 12 измерений, выбросы [7], медиана pV=247.793, разброс без выбросов=1.01%»; exit code 0.

@@ -1,0 +1,18 @@
+Intentional mutant: > changed to >= in classify_outliers
+Expected: the exact-threshold boundary test fails.
+
+F                                                                        [100%]
+================================== FAILURES ===================================
+______________ test_values_exactly_on_threshold_are_not_outliers ______________
+
+    def test_values_exactly_on_threshold_are_not_outliers() -> None:
+>       assert classify_outliers([75.0, 100.0, 125.0], 0.25) == [False, False, False]
+E       assert [True, False, True] == [False, False, False]
+E         
+E         At index 0 diff: True != False
+E         Use -v to get more diff
+
+checks\test_hw2_properties.py:93: AssertionError
+=========================== short test summary info ===========================
+FAILED checks/test_hw2_properties.py::test_values_exactly_on_threshold_are_not_outliers
+1 failed in 0.10s

@@ -1,0 +1,101 @@
+{
+  "description": "Descriptive resampling of these rows; not instrument accuracy or population inference.",
+  "n_rows": 12,
+  "median_pv_kpa_l": 247.79299999999995,
+  "full_sample_mean_pv_kpa_l": 228.74994999999998,
+  "filtered_mean_pv_kpa_l": 249.3182,
+  "filtered_minus_full_mean_pv_kpa_l": 20.568250000000006,
+  "filtered_minus_full_relative_to_filtered_mean": 0.08249798851427616,
+  "source_sha256": "93E92BF03CD81AE09F8D86E603C19E414C9CFAD6FD17CDCA8C95B3FB031AFF74",
+  "threshold_sweep": [
+    {
+      "threshold": 0.08,
+      "suspicious_rows": [
+        7
+      ],
+      "clean_n": 11,
+      "clean_mean_pv_kpa_l": 249.3182,
+      "clean_cv": 0.010587786755966073
+    },
+    {
+      "threshold": 0.1,
+      "suspicious_rows": [
+        7
+      ],
+      "clean_n": 11,
+      "clean_mean_pv_kpa_l": 249.3182,
+      "clean_cv": 0.010587786755966073
+    },
+    {
+      "threshold": 0.12,
+      "suspicious_rows": [
+        7
+      ],
+      "clean_n": 11,
+      "clean_mean_pv_kpa_l": 249.3182,
+      "clean_cv": 0.010587786755966073
+    }
+  ],
+  "bootstrap": [
+    {
+      "seed": 17,
+      "replicates": 2000,
+      "all_rows_mean_pv_kpa_l": 228.74994999999998,
+      "all_rows_sample_sd_pv_kpa_l": 71.29494786385638,
+      "all_rows_bootstrap_95_percentile_interval": [
+        187.04278333333332,
+        250.33769999999998
+      ],
+      "clean_rows_mean_pv_kpa_l": 249.3182,
+      "clean_rows_sample_sd_pv_kpa_l": 2.6397279359813006,
+      "clean_rows_bootstrap_95_percentile_interval": [
+        248.60139999999998,
+        250.7708888888889
+      ],
+      "paired_filtered_minus_all_mean_interval": [
+        0.0,
+        40.90360000000001
+      ]
+    },
+    {
+      "seed": 29,
+      "replicates": 2000,
+      "all_rows_mean_pv_kpa_l": 228.74994999999998,
+      "all_rows_sample_sd_pv_kpa_l": 71.29494786385638,
+      "all_rows_bootstrap_95_percentile_interval": [
+        186.9983,
+        250.42893333333333
+      ],
+      "clean_rows_mean_pv_kpa_l": 249.3182,
+      "clean_rows_sample_sd_pv_kpa_l": 2.6397279359813006,
+      "clean_rows_bootstrap_95_percentile_interval": [
+        247.84125454545452,
+        250.83689090909093
+      ],
+      "paired_filtered_minus_all_mean_interval": [
+        0.0,
+        61.938788888888894
+      ]
+    },
+    {
+      "seed": 41,
+      "replicates": 2000,
+      "all_rows_mean_pv_kpa_l": 228.74994999999998,
+      "all_rows_sample_sd_pv_kpa_l": 71.29494786385638,
+      "all_rows_bootstrap_95_percentile_interval": [
+        187.08663333333334,
+        250.41671666666667
+      ],
+      "clean_rows_mean_pv_kpa_l": 249.3182,
+      "clean_rows_sample_sd_pv_kpa_l": 2.6397279359813006,
+      "clean_rows_bootstrap_95_percentile_interval": [
+        247.8987,
+        250.8528
+      ],
+      "paired_filtered_minus_all_mean_interval": [
+        0.0,
+        61.91699444444444
+      ]
+    }
+  ]
+}

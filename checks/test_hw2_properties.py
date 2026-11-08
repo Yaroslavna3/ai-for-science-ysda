@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import copy
+import hashlib
 import math
 import sys
 from pathlib import Path
@@ -106,6 +107,13 @@ def test_source_data_contract_and_week2_flag() -> None:
     assert [row["row"] for row in result] == list(range(1, 13))
     assert [row["row"] for row in result if row["suspicious"]] == [7]
     assert all(math.isfinite(row["pv_kpa_l"]) for row in result)
+
+
+def test_source_csv_matches_frozen_hash() -> None:
+    source = ROOT / "data" / "measurements.csv"
+    assert hashlib.sha256(source.read_bytes()).hexdigest().upper() == (
+        "93E92BF03CD81AE09F8D86E603C19E414C9CFAD6FD17CDCA8C95B3FB031AFF74"
+    )
 
 
 def test_analysis_is_deterministic_and_does_not_mutate_input() -> None:
