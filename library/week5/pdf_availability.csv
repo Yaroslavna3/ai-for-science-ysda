@@ -1,0 +1,55 @@
+reference_number,doi,openalex_id,oa,is_oa_url,local_pdf,pdf_access_note
+1,10.1016/j.scitotenv.2021.152698,W4200218662,false,,,metadata only; no abstract in OpenAlex
+2,10.1002/wer.1324,W3012127312,false,,,no locally saved PDF
+3,10.1515/biol-2021-0003,W3122267117,true,https://www.degruyter.com/document/doi/10.1515/biol-2021-0003/pdf,pdfs/ref_03_10.1515_biol-2021-0003.pdf,"verified PDF, CC BY 4.0; Deutsche Nationalbibliothek repository copy"
+4,10.1021/acsaelm.0c00342,W3033483635,false,,,no locally saved PDF
+5,10.1021/acsami.1c05748,W3165657262,false,,,no locally saved PDF
+6,10.1016/j.jallcom.2016.06.086,W2443182084,false,,,metadata only; no abstract in OpenAlex
+7,10.1016/j.foodchem.2021.130666,W3183314732,false,,,metadata only; no abstract in OpenAlex
+8,10.1039/D0RA08319D,W3112842701,true,https://pubs.rsc.org/en/content/articlepdf/2020/ra/d0ra08319d,,PDF fetch failed: HTTP Error 403: Forbidden
+9,10.1016/j.cej.2018.03.024,W2794101818,false,,,metadata only; no abstract in OpenAlex
+10,10.1016/j.tsf.2018.11.008,W2899994227,true,https://www.sciencedirect.com/science/article/pii/S0040609018307491,,PDF fetch failed: HTTP Error 403: Forbidden
+11,10.1116/1.5064469,W2909357423,false,,,no locally saved PDF
+12,10.1016/j.matlet.2014.01.011,W2051526379,false,,,metadata only; no abstract in OpenAlex
+13,10.1016/j.apsusc.2015.04.175,W875125793,false,,,metadata only; no abstract in OpenAlex
+14,10.1016/j.electacta.2017.02.157,W2592550531,false,,,metadata only; no abstract in OpenAlex
+15,10.1039/c8ta06349d,W2884372257,false,,,no locally saved PDF
+16,10.1016/j.apsusc.2016.10.147,W2535560021,false,,,metadata only; no abstract in OpenAlex
+17,10.1134/S0036023620090181,W3089107176,false,,,no locally saved PDF
+18,10.1515/htmp-2017-0185,W2892680375,true,https://doi.org/10.1515/htmp-2017-0185,,OA URL did not return a verifiable PDF (content-type: text/html; charset=utf-8)
+19,10.1016/j.cjph.2018.08.012,W2888272886,false,,,metadata only; no abstract in OpenAlex
+20,10.1007/s10854-011-0491-x,W2017080328,false,,,metadata only; no abstract in OpenAlex
+21,10.11648/j.am.20140305.14,W2102499665,true,https://article.sciencepublishinggroup.com/pdf/10.11648.j.am.20140305.14.pdf,,OA URL did not return a verifiable PDF (content-type: text/plain;charset=utf-8)
+22,10.1088/1674-0068/20/03/315-318,W1626875773,false,,,no locally saved PDF
+23,10.1016/j.snb.2004.10.033,W1977214801,false,,,metadata only; no abstract in OpenAlex
+24,10.1039/c7nr08289d,W2778115116,true,https://pubs.rsc.org/en/content/articlepdf/2018/nr/c7nr08289d,,PDF fetch failed: HTTP Error 403: Forbidden
+25,10.1016/j.tsf.2018.12.004,W2903142554,false,,,metadata only; no abstract in OpenAlex
+26,10.1016/j.solener.2019.01.003,W2911378410,false,,,metadata only; no abstract in OpenAlex
+27,10.1039/c4ta05671j,W2079221767,false,,,no locally saved PDF
+28,10.1002/admt.201900048,W2921334366,true,https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/admt.201900048,,PDF fetch failed: HTTP Error 403: Forbidden
+29,10.3390/app11020526,W3120785707,true,https://www.mdpi.com/2076-3417/11/2/526/pdf?version=1610023801,,PDF fetch failed: HTTP Error 403: Forbidden
+30,10.3762/bjnano.8.151,W2738725804,true,https://www.beilstein-journals.org/bjnano/content/pdf/2190-4286-8-151.pdf,,PDF fetch failed: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1020)>
+31,10.1021/acsami.0c14055,W3107413095,false,,,no locally saved PDF
+32,10.1016/j.jcis.2020.12.052,W3114177045,false,,,metadata only; no abstract in OpenAlex
+33,10.1016/j.ceramint.2022.04.252,W4225163375,false,,,metadata only; no abstract in OpenAlex
+34,10.1016/j.apsusc.2021.151984,W3217670096,false,,,metadata only; no abstract in OpenAlex
+35,10.1134/S0036023621090126,W3200512257,false,,,no locally saved PDF
+36,10.1021/acsomega.8b02592,W2904607923,true,https://doi.org/10.1021/acsomega.8b02592,,PDF fetch failed: HTTP Error 403: Forbidden
+37,10.1016/j.jallcom.2020.154957,W3014144399,false,,,metadata only; no abstract in OpenAlex
+38,10.1134/S0036023621090138,W3200566241,false,,,no locally saved PDF
+39,10.3390/molecules25020269,W3000683697,true,https://www.mdpi.com/1420-3049/25/2/269/pdf?version=1579483663,,PDF fetch failed: HTTP Error 403: Forbidden
+40,10.1088/0957-4484/27/35/355603,W2482014493,false,,,no locally saved PDF
+41,10.1016/j.jallcom.2016.06.156,W2422845205,false,,,metadata only; no abstract in OpenAlex
+42,10.1007/s10854-018-8580-8,W2785751362,false,,,metadata only; no abstract in OpenAlex
+43,10.1021/am4047969,W2320528998,false,,,no locally saved PDF
+44,10.1590/1980-5373-mr-2017-0545,W2790605662,true,http://www.scielo.br/pdf/mr/v21n3/1516-1439-mr-1980-5373-MR-2017-0545.pdf,,PDF fetch failed: HTTP Error 403: Forbidden
+45,10.1039/C8CE00613J,W2805415602,false,,,no locally saved PDF
+46,10.1021/acsami.7b10309,W2767293566,false,,,no locally saved PDF
+47,10.1016/j.matchemphys.2003.09.003,W2002587478,false,,,metadata only; no abstract in OpenAlex
+48,10.1016/j.ceramint.2021.11.202,W3217463006,false,,,metadata only; no abstract in OpenAlex
+49,10.1016/j.jssc.2012.09.020,W1974438287,false,,,metadata only; no abstract in OpenAlex
+50,10.1142/S0219581X19500029,W2921444974,false,,,no locally saved PDF
+51,10.1016/j.apcatb.2020.119566,W3088456678,true,https://www.sciencedirect.com/science/article/am/pii/S0926337320309814,,PDF fetch failed: HTTP Error 403: Forbidden
+52,10.1134/S1087659618040144,W2885163848,false,,,no locally saved PDF
+53,10.1134/S1087659616050060,W2525241005,false,,,no locally saved PDF
+54,10.1134/S0036023617100072,W2766387113,false,,,no locally saved PDF
