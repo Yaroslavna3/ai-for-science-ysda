@@ -92,6 +92,12 @@ def test_values_exactly_on_threshold_are_not_outliers() -> None:
     assert classify_outliers([75.0, 100.0, 125.0], 0.25) == [False, False, False]
 
 
+@pytest.mark.parametrize("values, threshold", [([], 0.1), ([0.0, 1.0], 0.1), ([-1.0, 1.0], 0.1), ([1.0, float("nan")], 0.1), ([1.0], -0.1), ([1.0], 1.0), ([1.0], float("inf"))])
+def test_outlier_classifier_rejects_invalid_inputs(values: list[float], threshold: float) -> None:
+    with pytest.raises(ValueError):
+        classify_outliers(values, threshold)
+
+
 def test_source_data_contract_and_week2_flag() -> None:
     rows = load_rows()
     validate_rows(rows)

@@ -19,7 +19,26 @@ def pv_product(volume_l: float, pressure_kpa: float) -> float:
 
 def classify_outliers(pv_values: Sequence[float], threshold: float = 0.10) -> list[bool]:
     """Return flags for values whose relative deviation from the median exceeds threshold."""
-    raise NotImplementedError("G5: implement and verify outlier classification")
+    if not isinstance(threshold, (int, float)) or isinstance(threshold, bool):
+        raise ValueError("threshold must be numeric and in [0, 1)")
+    if not math.isfinite(threshold) or not 0 <= threshold < 1:
+        raise ValueError("threshold must be finite and in [0, 1)")
+    if not pv_values:
+        raise ValueError("pv_values must not be empty")
+
+    values: list[float] = []
+    for value in pv_values:
+        if (
+            not isinstance(value, (int, float))
+            or isinstance(value, bool)
+            or not math.isfinite(value)
+            or value <= 0
+        ):
+            raise ValueError("all pv_values must be finite and positive numeric")
+        values.append(float(value))
+
+    median_pv = statistics.median(values)
+    return [abs(value / median_pv - 1.0) > threshold for value in values]
 
 
 def validate_rows(rows: Sequence[Mapping[str, Any]]) -> None:
