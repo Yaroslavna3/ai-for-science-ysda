@@ -7,6 +7,8 @@ import json
 import statistics
 from pathlib import Path
 
+from boyle_core import analyze_rows
+
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA_PATH = ROOT / "data" / "measurements.csv"
@@ -31,14 +33,8 @@ def load_rows() -> list[dict[str, float]]:
 
 
 def main() -> None:
-    rows = load_rows()
-    for row in rows:
-        row["pv_kpa_l"] = row["volume_l"] * row["pressure_kpa"]
-
+    rows = analyze_rows(load_rows(), SUSPICIOUS_THRESHOLD)
     median_pv = statistics.median(row["pv_kpa_l"] for row in rows)
-    for row in rows:
-        row["relative_deviation_from_median"] = row["pv_kpa_l"] / median_pv - 1.0
-        row["suspicious"] = abs(row["relative_deviation_from_median"]) > SUSPICIOUS_THRESHOLD
 
     clean_rows = [row for row in rows if not row["suspicious"]]
     clean_pv = [row["pv_kpa_l"] for row in clean_rows]
