@@ -17,3 +17,9 @@ Result: exit code 0; threshold sweep and 2,000 bootstrap replicates for each of 
 
 Command: python checks/check.py
 Result: «принято: 12 измерений, выбросы [7], медиана pV=247.793, разброс без выбросов=1.01%»; exit code 0.
+
+Clean-clone validation from commit e64bb16:
+  python -m pytest checks/test_hw2_properties.py -q — 22 passed (exit code 0).
+  python checks/analyze_hw2.py — exit code 0.
+  python checks/run_mutation_smoke.py — 10/10 mutants caught (exit code 0).
+  python checks/check.py — accepted, exit code 0.
